@@ -12,7 +12,17 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/users" do
-    redirect "/users"
+    @user = User.new
+    @user.email = params[:email]
+    @user.username = params[:username]
+    @user.password = params[:password]
+    if @user.save
+      login(params[:username], params[:password])
+      redirect to "/runs"
+    else
+      erb :"users/new.html"
+    end
+
   end
 
   get "/users/login" do 
