@@ -15,8 +15,12 @@ class UsersController < ApplicationController
     redirect "/users"
   end
 
+  get "/users/login" do 
+    erb :"users/login.html"
+  end 
+
   post "/users/login" do 
-    login(params[:username], params[:password]])
+    login(params[:username], params[:password])
     redirect to "/runs"
   end
 
