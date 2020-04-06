@@ -1,1 +1,27 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Add A Run</h1>
+
+<form method="POST" action="/runs/<%= run.id %>">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <p>
+        <label for="date">Date:</label>
+        <input type="text" name="date" id="date" value="<%= @run.date %>">
+    </p>
+    <p>
+        <label for="email">Duration:</label>
+        <input type="text" name="email" id="email" <%= @run.duration %>> Minutes
+    </p>
+    <p>
+        <label for="distance">Distance:</label>
+        <input type="number" name="distance" id="distance" value="<%= @run.distance %>"> Miles
+    </p>
+    <p>
+        <label for="pace">Pace:</label>
+        <select id="pace" name="pace" value="<%= @run.pace%>">
+            <option value="Run">Run</option>
+            <option value="Jog">Jog</option>
+            <option value="Walk">Walk</option>
+            <option value="Intervals">Intervals</option>
+        </select>
+    </p>
+    <input type="submit" value="Confirm Changes">
+</form>
