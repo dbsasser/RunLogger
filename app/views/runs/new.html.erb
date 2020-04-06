@@ -1,1 +1,26 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>Add A Run</h1>
+
+<form method="POST" action="/runs">
+    <p>
+        <label for="date">Date:</label>
+        <input type="text" name="date" id="date" value="MM/DD/YYYY">
+    </p>
+    <p>
+        <label for="email">Duration:</label>
+        <input type="text" name="email" id="email"> Minutes
+    </p>
+    <p>
+        <label for="distance">Distance:</label>
+        <input type="number" name="distance" id="distance" value="0.00"> Miles
+    </p>
+    <p>
+        <label for="password">Pace:</label>
+        <select id="pace" name="pace">
+            <option value="Run">Run</option>
+            <option value="Jog">Jog</option>
+            <option value="Walk">Walk</option>
+            <option value="Intervals">Intervals</option>
+        </select>
+    </p>
+    <input type="submit" value="Add">
+</form>
