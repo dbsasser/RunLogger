@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
     def login(username, password)
       user = User.find_by(:username => username)
       if user && user.authenticate(password)
-        session[:id] = user.id
+        session[:user_id] = user.id
       else
         redirect '/users/login'
       end 
@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
     def current_user
       @user ||= User.find_by_id(session[:user_id]) if logged_in?
     end
-    
+
   end
 
 end
