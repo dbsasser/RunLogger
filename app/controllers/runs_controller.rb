@@ -25,7 +25,7 @@ class RunsController < ApplicationController
         end
       end
     else
-      reditrect to "/users/login"
+      redirect to "/users/login"
     end
   end
 
