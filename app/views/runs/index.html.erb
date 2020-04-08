@@ -1,1 +1,6 @@
 <h1>This is the Model's index page.</h1>
+
+<% @runs.each do |run| %>
+<%= Time.at(run.date).strftime('%m/%d/%Y') %> - <%= run.distance %> Miles - <%= run.duration %> Minutes - <%= run.pace %>
+<br><br>
+<% end %>

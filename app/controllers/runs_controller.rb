@@ -2,6 +2,7 @@ class RunsController < ApplicationController
 
   # GET: /runs
   get "/runs" do
+    @runs = Run.where(:user_id => current_user.id).order("date DESC")
     erb :"/runs/index.html"
   end
 
