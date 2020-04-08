@@ -2,8 +2,15 @@
 
 <form method="POST" action="/runs">
     <p>
-        <label for="date">Date:</label>
-        <input type="text" name="date" id="date" value="MM/DD/YYYY">
+        <label for="date">Date:</label><br>
+        <label for="month">Month:</label>
+        <input type="text" name="month" id="month" value="<%= Date.today.strftime('%m') %>" size="2" maxlength="2">
+
+        <label for="day">Day:</label>
+        <input type="text" name="day" id="day" value="<%= Date.today.strftime('%d') %>"size="2" maxlength="2">
+
+        <label for="year">Year:</label>
+        <input type="text" name="year" id="year" value="<%= Date.today.strftime('%Y') %>" size="4" maxlength="4">
     </p>
     <p>
         <label for="email">Duration:</label>
@@ -11,7 +18,7 @@
     </p>
     <p>
         <label for="distance">Distance:</label>
-        <input type="number" name="distance" id="distance" value="0.00"> Miles
+        <input type="text" name="distance" id="distance" value="0.00"> Miles
     </p>
     <p>
         <label for="pace">Pace:</label>
