@@ -19,7 +19,7 @@ class RunsController < ApplicationController
         date = Time.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
         @run = current_user.runs.build(date: date, duration: params[:duration], distance: params[:distance], pace: params[:pace])
         if @run.save
-          redirect.to "/runs"
+          redirect to "/runs"
         else
           redirect to "/runs/new"
         end
