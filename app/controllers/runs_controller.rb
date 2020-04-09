@@ -43,7 +43,16 @@ class RunsController < ApplicationController
 
   # GET: /runs/5/edit
   get "/runs/:id/edit" do
-    erb :"/runs/edit.html"
+    if logged_in?
+      @run = Run.find_by_id(params[:id])
+      if @run && @run.user == current_user
+        erb :"/runs/edit.html"
+      else
+        redirect to "/runs"
+      end
+    else
+      redirect to "/users/login"
+    end
   end
 
   # PATCH: /runs/5
