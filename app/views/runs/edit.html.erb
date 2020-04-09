@@ -1,10 +1,17 @@
 <h1>Add A Run</h1>
 
-<form method="POST" action="/runs/<%= run.id %>">
+<form method="POST" action="/runs/<%= @run.id %>">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <p>
-        <label for="date">Date:</label>
-        <input type="text" name="date" id="date" value="<%= @run.date %>">
+        <p>
+        <label for="date">Date:</label><br>
+        <label for="month">Month:</label>
+        <input type="text" name="month" id="month" value="<%= Time.at(@run.date).strftime('%m') %>" size="2" maxlength="2">
+
+        <label for="day">Day:</label>
+        <input type="text" name="day" id="day" value="<%= Time.at(@run.date).strftime('%d') %>"size="2" maxlength="2">
+
+        <label for="year">Year:</label>
+        <input type="text" name="year" id="year" value="<%= Time.at(@run.date).strftime('%Y') %>" size="4" maxlength="4">
     </p>
     <p>
         <label for="email">Duration:</label>
