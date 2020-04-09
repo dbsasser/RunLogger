@@ -1,1 +1,7 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1>Run Stats</h1>
+
+<%= Time.at(@run.date).strftime('%m/%d/%Y') %><br><br>
+Distance: <%= @run.distance %> Miles<br>
+Time: <%= @run.duration%> Minutes<br>
+Pace: <%= @run.pace %> 
+
