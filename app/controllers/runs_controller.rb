@@ -37,7 +37,7 @@ class RunsController < ApplicationController
       @run = Run.find_by_id(params[:id])
       erb :"/runs/show.html"
     else
-      redirect to '/login'
+      redirect to "users/login"
     end
   end
 
