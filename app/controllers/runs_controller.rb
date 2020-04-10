@@ -57,8 +57,29 @@ class RunsController < ApplicationController
 
   # PATCH: /runs/5
   patch "/runs/:id" do
-    redirect "/runs/:id"
+    if logged_in?
+      if params[:year] == "" || params[:month] == "" || params[:day] == "" || params[:duration] == "" || params[:distance] == "" || params[:pace] == ""
+        redirect to "runs/#{params[:id]}/edit" 
+      else
+        @run = Run.find_by_id(params[:id])
+        date = Time.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+        if @run && @run.user == current_user
+          if @run.update(date: date, duration: params[:duration], distance: params[:distance], pace: params[:pace])
+            redirect to "/runs/#{@run.id}"
+          else 
+            redirect to "/runs/#{@run.id}/edit"
+          end
+        else
+          redirect to "/runs"
+        end
+      end
+    else
+      redirect to "/users/login"
+    end
   end
+
+    
+ 
 
   # DELETE: /runs/5/delete
   delete "/runs/:id/delete" do
