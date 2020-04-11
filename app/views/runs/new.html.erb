@@ -13,8 +13,15 @@
         <input type="text" name="year" id="year" value="<%= Date.today.strftime('%Y') %>" size="4" maxlength="4">
     </p>
     <p>
-        <label for="duration">Duration:</label>
-        <input type="text" name="duration" id="duration" value="10"> Minutes
+        <label for="minutes">Duration:</label>
+        <label for="month">Hours:</label>
+        <input type="text" name="hours" id="hours" value="00" size="2" maxlength="2">
+
+        <label for="minutes">Minutes:</label>
+        <input type="text" name="minutes" id="minutes" value="00"size="2" maxlength="2">
+
+        <label for="seconds">Seconds:</label>
+        <input type="text" name="seconds" id="seconds" value="00" size="2" maxlength="2">
     </p>
     <p>
         <label for="distance">Distance:</label>
