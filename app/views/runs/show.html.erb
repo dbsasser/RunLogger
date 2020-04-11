@@ -3,7 +3,7 @@
 <p>
 <%= Time.at(@run.date).strftime('%m/%d/%Y') %><br><br>
 Distance: <%= @run.distance %> Miles<br>
-Time: <%= @run.duration%> Minutes<br>
+Time: <%= Time.at(@run.duration).utc.strftime('%H:%M:%S') %><br>
 Pace: <%= @run.pace %><br><br>
 
 Your average speed was <%=@run.avg_speed%> MPH.
