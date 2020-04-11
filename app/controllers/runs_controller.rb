@@ -91,6 +91,12 @@ class RunsController < ApplicationController
 
   # DELETE: /runs/5/delete
   delete "/runs/:id/delete" do
-    redirect "/runs"
+    @run = Run.find_by_id(params[:id])
+
+    if @run.destroy
+      redirect "/runs"
+    else
+      redirect "/runs/#{@run.id}"
+    else
   end
 end
