@@ -12,7 +12,11 @@ class RunsController < ApplicationController
 
   # GET: /runs/new
   get "/runs/new" do
-    erb :"/runs/new.html"
+    if logged_in? 
+      erb :"/runs/new.html"
+    else
+      redirect to "/users/login"
+    end
   end
 
   # POST: /runs
