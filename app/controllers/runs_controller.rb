@@ -97,6 +97,6 @@ class RunsController < ApplicationController
       redirect "/runs"
     else
       redirect "/runs/#{@run.id}"
-    else
+    end
   end
 end
