@@ -26,7 +26,8 @@ class RunsController < ApplicationController
         redirect to "runs/new" 
       else
         date = Time.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
-        @run = current_user.runs.build(date: date, duration: params[:duration], distance: params[:distance], pace: params[:pace])
+        duration = (((params[:hours].to_i * 60) + params[:minutes].to_i) * 60) + params[:seconds].to_i
+        @run = current_user.runs.build(date: date, duration: duration, distance: params[:distance], pace: params[:pace])
         if @run.save
           redirect to "/runs"
         else
@@ -71,8 +72,9 @@ class RunsController < ApplicationController
       else
         @run = Run.find_by_id(params[:id])
         date = Time.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+        duration = (((params[:hours].to_i * 60) + params[:minutes].to_i) * 60) + params[:seconds].to_i
         if @run && @run.user == current_user
-          if @run.update(date: date, duration: params[:duration], distance: params[:distance], pace: params[:pace])
+          if @run.update(date: date, duration: duration, distance: params[:distance], pace: params[:pace])
             redirect to "/runs/#{@run.id}"
           else 
             redirect to "/runs/#{@run.id}/edit"
