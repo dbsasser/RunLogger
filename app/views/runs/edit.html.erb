@@ -14,8 +14,15 @@
         <input type="text" name="year" id="year" value="<%= Time.at(@run.date).strftime('%Y') %>" size="4" maxlength="4">
     </p>
     <p>
-        <label for="duration">Duration:</label>
-        <input type="text" name="duration" id="duration" value="<%= @run.duration %>"> Minutes
+        <label for="minutes">Duration:</label>
+        <label for="month">Hours:</label>
+        <input type="text" name="hours" id="hours" value="<%= Time.at(@run.duration).utc.strftime("%H") %>" size="2" maxlength="2">
+
+        <label for="minutes">Minutes:</label>
+        <input type="text" name="minutes" id="minutes" value="<%= Time.at(@run.duration).utc.strftime("%M") %>"size="2" maxlength="2">
+
+        <label for="seconds">Seconds:</label>
+        <input type="text" name="seconds" id="seconds" value="<%= Time.at(@run.duration).utc.strftime("%S") %>" size="2" maxlength="2">
     </p>
     <p>
         <label for="distance">Distance:</label>
