@@ -2,8 +2,12 @@ class RunsController < ApplicationController
 
   # GET: /runs
   get "/runs" do
-    @runs = Run.where(:user_id => current_user.id).order("date DESC")
-    erb :"/runs/index.html"
+    if logged_in? 
+      @runs = Run.where(:user_id => current_user.id).order("date DESC")
+      erb :"/runs/index.html"
+    else
+      redirect to "/users/login"
+    end
   end
 
   # GET: /runs/new
