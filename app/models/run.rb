@@ -5,12 +5,12 @@ class Run < ActiveRecord::Base
         (self.distance / self.duration.to_f)*60 
     end
 
-    def speed 
+    def avg_speed 
         (self.distance / self.duration.to_f)/60
     end
 
     def mile_time 
-        time = 1/speed 
+        time = 1/avg_speed 
         Time.at(time).utc.strftime("%H:%M:%S")
     end 
 
