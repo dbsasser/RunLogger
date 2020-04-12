@@ -6,7 +6,7 @@ Distance: <%= @run.distance %> Miles<br>
 Time: <%= Time.at(@run.duration).utc.strftime('%H:%M:%S') %><br>
 Pace: <%= @run.pace %><br><br>
 
-Your average speed was <%=@run.avg_speed%> MPH.
+Your average speed was <%=@run.avg_speed_in_mph%> MPH.
 </p>
 
 <a href="/runs/<%= @run.id %>/edit"><button>Edit</button></a>
