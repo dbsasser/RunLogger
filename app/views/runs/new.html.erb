@@ -1,40 +1,81 @@
-<h1>Add A Run</h1>
 
-<form method="POST" action="/runs">
-    <p>
-        <label for="date">Date:</label><br>
-        <label for="month">Month:</label>
-        <input type="text" name="month" id="month" value="<%= Date.today.strftime('%m') %>" size="2" maxlength="2">
-
-        <label for="day">Day:</label>
-        <input type="text" name="day" id="day" value="<%= Date.today.strftime('%d') %>"size="2" maxlength="2">
-
-        <label for="year">Year:</label>
-        <input type="text" name="year" id="year" value="<%= Date.today.strftime('%Y') %>" size="4" maxlength="4">
-    </p>
-    <p>
-        <label for="minutes">Duration:</label>
-        <label for="month">Hours:</label>
-        <input type="text" name="hours" id="hours" value="00" size="2" maxlength="2">
-
-        <label for="minutes">Minutes:</label>
-        <input type="text" name="minutes" id="minutes" value="00"size="2" maxlength="2">
-
-        <label for="seconds">Seconds:</label>
-        <input type="text" name="seconds" id="seconds" value="00" size="2" maxlength="2">
-    </p>
-    <p>
-        <label for="distance">Distance:</label>
-        <input type="text" name="distance" id="distance" value="0.00"> Miles
-    </p>
-    <p>
-        <label for="pace">Pace:</label>
-        <select id="pace" name="pace">
+<div class="card mx-auto text-center bg-dark text-white" style="max-width: 21rem;">
+    <div class="card-header">
+        Add A Run
+    </div>
+    <div class="card-body">
+        <form method="POST" action="/runs" style="width: 18rem;">
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+               <label>Date</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control text-center" name="month" id="month" value="<%= Date.today.strftime('%m') %>" size="2" maxlength="2">
+                <small><label for="month">Month</label></small>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control text-center" name="day" id="day" value="<%= Date.today.strftime('%d') %>"size="2" maxlength="2">
+                <small><label for="day">Day</label></small>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control text-center" name="year" id="year" value="<%= Date.today.strftime('%Y') %>" size="4" maxlength="4">
+                <small><label for="day">Year</label></small>
+            </div>
+        </div>    
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <label>Duration</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control text-center" name="hours" id="hours" value="00" size="2" maxlength="2">
+                <small><label for="month">Hours</label></small>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control text-center" name="minutes" id="minutes" value="00"size="2" maxlength="2">
+                <small><label for="minutes">Minutes</label></small>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control text-center" name="seconds" id="seconds" value="00" size="2" maxlength="2">
+                <small><label for="seconds">Seconds</label></small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <label for="distance">Distance</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="distance" id="distance" value="0.00">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Miles</span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pace">Pace</label>
+        <select class="form-control" id="pace" name="pace">
             <option value="Run">Run</option>
             <option value="Jog">Jog</option>
             <option value="Walk">Walk</option>
             <option value="Intervals">Intervals</option>
         </select>
-    </p>
-    <input type="submit" value="Add">
+    </div>
+    <div class="form-group">
+        <input type="submit" class="form-control" value="Add">
+    </div>
 </form>
+</div>
+</div>
