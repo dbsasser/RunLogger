@@ -1,13 +1,21 @@
-<h1>Log In</h1>
-
-<form method="POST" action ="/users/login">
-    <p>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-    </p>
-    <p>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-    </p>
-    <input type="submit" value="Log In">
-</form>
+<div class="card mx-auto text-center bg-dark text-white" style="max-width: 21rem;">
+    <div class="card-header">
+        Log In
+    </div>
+    <div class="card-body">
+        <form method="POST" action ="/users/login">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control text-center" name="username" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control text-center" name="password" id="password">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Log In">
+            </div>
+            <small>Don't have an account? <a href="/users/new">Sign Up</a></small>
+        </form>
+    </div>
+</div>
