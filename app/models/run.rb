@@ -2,11 +2,11 @@ class Run < ActiveRecord::Base
     belongs_to :user
 
     def avg_speed_in_mph
-        ((self.distance / self.duration.to_f)*60)*60 
+        (((self.distance / self.duration.to_f)*60)*60).round(2) 
     end
 
     def avg_speed 
-        (self.distance / self.duration.to_f)
+        (self.distance / self.duration.to_f).round(2)
     end
 
     def mile_time 
