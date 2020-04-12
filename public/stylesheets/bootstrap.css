@@ -61,6 +61,11 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  background: url('/images/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
