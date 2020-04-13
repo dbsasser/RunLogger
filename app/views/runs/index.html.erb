@@ -1,6 +1,24 @@
 <h1>This is the Model's index page.</h1>
 
 <% @runs.each do |run| %>
-<a href="/runs/<%=run.id %>"><%= Time.at(run.date).strftime('%m/%d/%Y') %> - <%= run.distance %> Miles - <%= run.duration %> Minutes - <%= run.pace %></a>
-<br><br>
+<div class="card" style="width: 21rem;">
+    <div class="card-header">
+        <img src="/images/walk.png"> <%= run.pace %>
+        <span class="float-right"><%= Time.at(run.date).strftime('%m/%d/%Y') %></span>
+    </div>
+    <div class="card-body text-center">
+        <div class="row">
+        <div class="col">
+            <strong><%= Time.at(run.duration.to_i).utc.strftime('%H:%M:%S') %></strong><br>
+            <small>Duration</small>
+        </div>
+        <div class="col">
+            <strong><%= run.distance %></strong><br>
+            <small>Miles</small>
+        </div>
+        </div>
+    </div>
+<a href="/runs/<%= run.id %>" class="stretched-link"></a>
+</div>
+
 <% end %>
