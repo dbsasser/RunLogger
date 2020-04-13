@@ -1,18 +1,74 @@
-<h1>Run Stats</h1>
+<div class="row justify-content-center">
+<div class="card w-75">
+    <div class="card-header <%= @run.pace.downcase %>">
+        <img src="/images/<%= @run.pace.downcase %>.png"> <%= @run.pace %>
+        <span class="float-right"><%= Time.at(@run.date).strftime('%m/%d/%Y') %></span>
+    </div>
+    <div class="card-body text-center">
+        <div class="row justify-content-center">
+        <div class="col-lg-3">
+            <h2><%= Time.at(@run.duration.to_i).utc.strftime('%H:%M:%S') %></h2>
+            DURATION
+        </div>
+        <div class="col-lg-3">
+            <h2><%= @run.distance %></h2>
+            MILES
+        </div>
+        </div>
+        <div class="row justify-content-center">
+        <div class="col-lg-6 mt-3 text-left">
+            <small>Notes:</small><br>
+            Lorem ipsum this is a note and I'm going to make it even longer than it was before. In fact, I'm going to make it a lot longer.
+        </div>
+        </div>
+        <div class="row justify-content-md-center">
+        <div class="col-lg-8">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <small>Your Average Speed Was</small><br>
+                            <h2 class="m-0"><%=@run.avg_speed_in_mph%></h2>
+                            MPH
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col">
+                            <small>If you ran that speed for an entire race, your times would be:</small>
+                        </div>
+                    </div>   
+                    <div class="row">
+                        <div class="col">
+                            <strong><%= @run.mile_time %></strong><br>
+                            <small>1600m<br>(1 Mile)</small>     
+                        </div>
+                        <div class="col">
+                            <strong><%= @run.mile_time %></strong><br>
+                            <small>5k<br>(3.1 Miles)</small>
+                        </div>
+                        <div class="col">
+                            <strong><%= @run.mile_time %></strong><br>
+                            <small>Half-Mar.<br>(13.1 Miles)</small>
+                        </div>
+                        <div class="col">
+                            <strong><%= @run.mile_time %></strong><br>
+                            <small>Marathon<br>(26.2 Miles)</small>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row justify-content-center">
+        <a href="/runs/<%= @run.id %>" class="btn btn-success btn-sm m-2">Edit</a>
+        <form action="/runs/<%= @run.id %>/delete" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" class="btn btn-danger btn-sm m-2" value="Delete">
+        </form>
 
-<p>
-<%= Time.at(@run.date).strftime('%m/%d/%Y') %><br><br>
-Distance: <%= @run.distance %> Miles<br>
-Time: <%= Time.at(@run.duration).utc.strftime('%H:%M:%S') %><br>
-Pace: <%= @run.pace %><br><br>
+        </div>
+    </div>
+</div>
+</div>
 
-Your average speed was <%=@run.avg_speed_in_mph%> MPH.
-</p>
-
-<a href="/runs/<%= @run.id %>/edit"><button>Edit</button></a>
-
-<form action="/runs/<%= @run.id %>/delete" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
-</form>
 
