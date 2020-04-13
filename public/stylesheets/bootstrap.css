@@ -4791,11 +4791,28 @@ input[type="button"].btn-block {
   margin-left: 1.25rem;
 }
 
+
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.walk {
+  border-bottom: 2px solid #76c17c !important;
+}
+
+.jog {
+  border-bottom: 2px solid #ffc061 !important;
+}
+
+.run {
+  border-bottom: 2px solid #d64646 !important;
+}
+
+.intervals {
+  border-bottom: 2px solid #60abdd !important;
 }
 
 .card-header:first-child {

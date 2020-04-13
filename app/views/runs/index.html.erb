@@ -2,8 +2,8 @@
 
 <% @runs.each do |run| %>
 <div class="card" style="width: 21rem;">
-    <div class="card-header">
-        <img src="/images/walk.png"> <%= run.pace %>
+    <div class="card-header <%= run.pace.downcase %>">
+        <img src="/images/<%= run.pace.downcase %>.png"> <%= run.pace %>
         <span class="float-right"><%= Time.at(run.date).strftime('%m/%d/%Y') %></span>
     </div>
     <div class="card-body text-center">
