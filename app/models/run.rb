@@ -6,7 +6,7 @@ class Run < ActiveRecord::Base
     end
 
     def avg_speed 
-        (self.distance / self.duration.to_f).round(2)
+        (self.distance / self.duration.to_f)
     end
 
     def mile_time 
