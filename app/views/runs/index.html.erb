@@ -2,7 +2,28 @@
     <div class="col-md-5 text-center">
         <div class="card mb-3 sticky-top">
             <div class="row">
-                <h5 class="card-title"> <%= current_user.username %> </h5>
+                <div class="col">
+                    <h4 class="card-title mb-0"> <%= current_user.username %> </h4>
+                    <small><%= current_user.email%></small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4 class="mb-0"><%= @runs.where(:pace => "Run").count %></h2>
+                    Runs
+                </div>
+                <div class="col">
+                    <h4 class="mb-0"><%= @runs.where(:pace => "Jog").count %></h2>
+                    Jogs
+                </div>
+                <div class="col">
+                    <h4 class="mb-0"><%= @runs.where(:pace => "Walk").count %></h2>
+                    Walks
+                </div>
+                <div class="col">
+                    <h4 class="mb-0"><%= @runs.where(:pace => "Intervals").count %></h2>
+                    Ints
+                </div>
             </div>
         </div>
     </div>
