@@ -3,7 +3,8 @@ class RunsController < ApplicationController
   # GET: /runs
   get "/runs" do
     if logged_in? 
-      @runs = Run.where(:user_id => current_user.id).order("date DESC")
+      #Use current_user.runs
+      @runs = current_user.runs.order("date DESC")
       erb :"/runs/index.html"
     else
       redirect to "/users/login"
