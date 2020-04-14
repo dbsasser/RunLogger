@@ -15,12 +15,14 @@
             MILES
         </div>
         </div>
-        <div class="row justify-content-center">
-        <div class="col-lg-6 mt-3 text-left">
-            <small>Notes:</small><br>
-            Lorem ipsum this is a note and I'm going to make it even longer than it was before. In fact, I'm going to make it a lot longer.
-        </div>
-        </div>
+        <% if !@run.notes.blank? %>
+            <div class="row justify-content-center">
+            <div class="col-lg-6 mt-3 text-left">
+                <small>Notes:</small><br>
+                <%= @run.notes %>
+            </div>
+            </div>
+        <% end %>
         <div class="row justify-content-md-center">
         <div class="col-lg-8">
             <div class="card mt-3">
