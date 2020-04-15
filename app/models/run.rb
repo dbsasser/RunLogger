@@ -9,8 +9,8 @@ class Run < ActiveRecord::Base
         (self.distance / self.duration.to_f)
     end
 
-    def display_time
-        Time.at(self.duration).utc.strftime("%H:%M:%S")
+    def display_time(duration)
+        Time.at(duration).utc.strftime("%H:%M:%S")
     end
     
     def display_date
