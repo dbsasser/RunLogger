@@ -40,12 +40,12 @@
             <div class="card mx-auto">
                 <div class="card-header <%= run.pace.downcase %>">
                     <img src="/images/<%= run.pace.downcase %>.png"> <%= run.pace %>
-                    <span class="float-right"><%= Time.at(run.date).strftime('%m/%d/%Y') %></span>
+                    <span class="float-right"><%= run.display_date %></span>
                 </div>
                 <div class="card-body text-center">
                     <div class="row">
                         <div class="col">
-                            <strong><%= Time.at(run.duration.to_i).utc.strftime('%H:%M:%S') %></strong><br>
+                            <strong><%= run.display_time(run.duration) %></strong><br>
                             <small>Duration</small>
                         </div>
                         <div class="col">
