@@ -12,7 +12,11 @@ class Run < ActiveRecord::Base
     def display_time(duration)
         Time.at(duration).utc.strftime("%H:%M:%S")
     end
-        
+    
+    def display_date(date)
+        Time.at(date).strftime('%m/%d/%Y')
+    end 
+    
     def mile_time 
         display_time(1/avg_speed)
     end 
