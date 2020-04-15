@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
 
-  # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
-  end
-
   # GET: /users/new
   get "/users/new" do
     if logged_in?
