@@ -75,7 +75,7 @@
     </div>
     <div class="form-group">
         <label for="notes">Notes <small>(Optional)</small></label>
-        <textarea class="form-control" name="notes" id="notes" rows="3" value="<%= @run.notes%>"></textarea>
+        <textarea class="form-control" name="notes" id="notes" rows="3"><%= @run.notes %></textarea>
     </div>
     <div class="form-group">
         <a href="/runs/<%= @run.id %>" class="btn btn-danger">Cancel</a>
