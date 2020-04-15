@@ -5,6 +5,10 @@ class RunsController < ApplicationController
     if logged_in? 
       #Use current_user.runs
       @runs = current_user.runs.order("date DESC")
+      @run_count = @runs.where(:pace => "Run").count
+      @jog_count = @runs.where(:pace => "Jog").count
+      @walk_count = @runs.where(:pace => "Walk").count
+      @int_count = @runs.where(:pace => "Intervals").count
       erb :"/runs/index.html"
     else
       redirect to "/users/login"
