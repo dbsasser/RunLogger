@@ -13,28 +13,20 @@ class Run < ActiveRecord::Base
         Time.at(duration).utc.strftime("%H:%M:%S")
     end
         
-
     def mile_time 
-        time = 1/avg_speed 
-        Time.at(time).utc.strftime("%H:%M:%S")
+        display_time(1/avg_speed)
     end 
 
-    def fivek_time 
-        time = 3.1/avg_speed 
-        Time.at(time).utc.strftime("%H:%M:%S")
+    def fivek_time
+        display_time(3.1/avg_speed)
     end 
 
     def half_marathon_time
-        time = 13.11/avg_speed 
-        Time.at(time).utc.strftime("%H:%M:%S")
+        display_time(13.11/avg_speed)
     end  
 
     def marathon_time
-        time = 26.22/avg_speed 
-        Time.at(time).utc.strftime("%H:%M:%S")
+        display_time(26.22/avg_speed)
     end
-
-
-
 
 end
