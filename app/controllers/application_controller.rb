@@ -45,6 +45,14 @@ class ApplicationController < Sinatra::Base
       end
     end 
 
+    def valid_duration?
+      if params[:hours].to_i.between?(0,24) && params[:minutes].to_i.between?(0,60) && params[:seconds].to_i.between?(0,60)
+        true
+      else
+        false
+      end
+    end 
+
   end
 
 end
