@@ -27,7 +27,7 @@ class RunsController < ApplicationController
   # POST: /runs
   post "/runs" do
     if logged_in?
-      if params[:year] == "" || params[:month] == "" || params[:day] == "" || params[:duration] == "" || params[:distance] == "" || params[:pace] == ""
+      if !valid_date?
         redirect to "runs/new" 
       else
         date = Time.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
