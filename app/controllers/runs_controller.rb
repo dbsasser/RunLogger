@@ -3,7 +3,6 @@ class RunsController < ApplicationController
   # GET: /runs
   get "/runs" do
     if logged_in? 
-      #Use current_user.runs
       @runs = current_user.runs.order("date DESC")
       @run_count = @runs.where(:pace => "Run").count
       @jog_count = @runs.where(:pace => "Jog").count
@@ -27,7 +26,7 @@ class RunsController < ApplicationController
   # POST: /runs
   post "/runs" do
     if logged_in?
-      if !valid_date?
+      if !valid_date? || !valid_duration?
         redirect to "runs/new" 
       else
         date = Time.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
