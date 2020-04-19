@@ -1,6 +1,11 @@
 class Run < ActiveRecord::Base
     belongs_to :user
 
+    validates :date, presence: true
+    validates :duration, presence: true, numericality: true
+    validates :distance, presence: true, numericality: {greater_than: 0}
+    validates :pace, presence: true
+
     def avg_speed_in_mph
         (((self.distance / self.duration.to_f)*60)*60).round(2) 
     end
