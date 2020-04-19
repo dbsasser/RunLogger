@@ -37,6 +37,14 @@ class ApplicationController < Sinatra::Base
       @user ||= User.find_by_id(session[:user_id]) if logged_in?
     end
 
+    def valid_date?
+      if params[:month].to_i.between?(1,12) && params[:day].to_i.between?(1,31) && params[:year].to_i.between?(1900,2200)
+        true
+      else
+        false
+      end
+    end 
+
   end
 
 end
