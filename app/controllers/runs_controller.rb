@@ -48,7 +48,11 @@ class RunsController < ApplicationController
   get "/runs/:id" do
     if logged_in?
       @run = Run.find_by_id(params[:id])
-      erb :"/runs/show.html"
+      if @run && @run.user == current_user
+        erb :"/runs/show.html"
+      else
+        redirect to "/runs"
+      end
     else
       redirect to "users/login"
     end
@@ -98,7 +102,6 @@ class RunsController < ApplicationController
   # DELETE: /runs/5/delete
   delete "/runs/:id/delete" do
     @run = Run.find_by_id(params[:id])
-
     if @run.destroy
       redirect "/runs"
     else
