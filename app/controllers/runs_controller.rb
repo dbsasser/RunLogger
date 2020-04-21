@@ -71,7 +71,7 @@ class RunsController < ApplicationController
   # PATCH: /runs/5
   patch "/runs/:id" do
     if logged_in?
-      if params[:year] == "" || params[:month] == "" || params[:day] == "" || params[:duration] == "" || params[:distance] == "" || params[:pace] == ""
+      if !valid_date? || !valid_duration?
         redirect to "runs/#{params[:id]}/edit" 
       else
         @run = Run.find_by_id(params[:id])
